@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Christmas Flipbook</title>
+
+		<style>
+			body
+			{
+				background-color: #000000;
+			}
+
+			#container
+			{
+				width: 600px;
+				height: 400px;
+				margin: 10% auto 0 auto;
+			}
+
+			.section
+			{
+				width: 50%;
+				height:100%;
+				outline: 0px solid #FF0000;
+				float: left;
+			}
+
+			.pageholder
+			{
+				width: 100%;
+				height: 100%;
+				outline: 0px solid #0000FF;
+				float: left;
+			}
+
+			#left_front, #right_front
+			{
+				margin-left: -100%;
+				outline: 0px solid #FFFFFF;
+			}
+
+			#left .page
+			{
+				width: 250px;
+				height: 350px;
+/* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/rgb(250, 250, 200)+0,f9eca7+91,db9200+98,b57e00+100 */
+background: rgb(250, 250, 200); /* Old browsers */
+background: -moz-linear-gradient(left,  rgb(250, 250, 200) 0%, rgb(250, 250, 200) 55%, rgb(150, 150, 50) 90%, rgb(50, 50, 10) 100%); /* FF3.6-15 */
+background: -webkit-linear-gradient(left,  rgb(250, 250, 200) 0%, rgb(250, 250, 200) 55%,rgb(150, 150, 50) 90%,rgb(50, 50, 10) 100%); /* Chrome10-25,Safari5.1-6 */
+background: linear-gradient(to right,  rgb(250, 250, 200) 0%, rgb(250, 250, 200) 55%, rgb(150, 150, 50) 90%,rgb(50, 50, 10) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+				background-color: #FFFF00;
+				padding: 25px;
+			}
+
+			#right .page
+			{
+				width: 250px;
+				height: 350px;
+/* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/rgb(250, 250, 200)+0,f9eca7+91,db9200+98,b57e00+100 */
+background: rgb(250, 250, 200); /* Old browsers */
+background: -moz-linear-gradient(left,  rgb(50, 50, 10) 0%, rgb(150, 150, 50) 10%, rgb(250, 250, 200) 45%, rgb(250, 250, 200) 100%); /* FF3.6-15 */
+background: -webkit-linear-gradient(left,  rgb(50, 50, 10) 0%,rgb(150, 150, 50) 10%,rgb(250, 250, 200) 45%,rgb(250, 250, 200) 100%); /* Chrome10-25,Safari5.1-6 */
+background: linear-gradient(to right,  rgb(50, 50, 10) 0%,rgb(150, 150, 50) 10%,rgb(250, 250, 200) 45%,rgb(250, 250, 200) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+				background-color: #FFFF00;
+				padding: 25px;
+			}
+
+		</style>
+
+		<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+		<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
+		<script>
+			$(document).ready
+			(
+
+			);
+		</script>
+	</head>
+
+	<body>
+		<div id="container">
+			<div id="left" class="section">
+				<div id="left_back" class="pageholder">
+				</div>
+
+				<div id="left_front" class="pageholder">
+					<div class="page">
+							<h1>1</h1>
+							<p>Test</p>
+					</div>
+				</div>
+			</div>
+
+			<div id="right" class="section">
+				<div id="right_back" class="pageholder">
+
+				</div>
+
+				<div id="right_front" class="pageholder">
+					<div class="page">
+							<h1>2</h1>
+							<p>Test 2</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>
