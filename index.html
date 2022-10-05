@@ -34,7 +34,7 @@
 				float: left;
 			}
 
-			#left_front, #right_front
+			#left_front, #right_front, #left_middle, #right_middle
 			{
 				margin-left: -100%;
 				outline: 0px solid #FFFFFF;
@@ -102,6 +102,106 @@ background: linear-gradient(to right,  rgb(50, 50, 10) 0%, rgb(150, 150, 50) 30%
 		<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 
 		<script>
+			let book = 
+			{
+				views: 
+				[
+					{
+						left:
+						{
+							class: null
+						},
+						right:
+						{
+							class: "cover",
+							content: ""
+						}
+					},
+					{
+						left:
+						{
+							class: "cover",
+							content: ""					
+						},
+						right:
+						{
+							class: "page",
+							pagenumber: 1,
+							content: ""	
+						}
+					},
+					{
+						left:
+						{
+							class: "page",
+							pagenumber: 2,
+							content: ""				
+						},
+						right:
+						{
+							class: "page",
+							pagenumber: 3,
+							content: ""	
+						}
+					},
+					{
+						left:
+						{
+							class: "page",
+							pagenumber: 4,
+							content: ""				
+						},
+						right:
+						{
+							class: "page",
+							pagenumber: 5,
+							content: ""	
+						}
+					},
+					{
+						left:
+						{
+							class: "page",
+							pagenumber: 6,
+							content: ""				
+						},
+						right:
+						{
+							class: "cover",
+							content: ""	
+						}
+					},
+					{
+						left:
+						{
+							class: "cover",
+							content: ""				
+						},
+						right:
+						{
+							class: null
+						}
+					}
+				],
+				currentView: 0,
+				flip: function(dir) 
+				{
+					if (this.currentView + dir < 0) return;
+					if (this.currentView + dir > this.views.length -1) return;
+
+					this.currentView = this.currentView + dir;
+					this.renderView();
+				},
+				renderView: function()
+				{
+
+				},
+				renderPage: function(id, page)
+				{
+
+				}
+			}
+
 			$(document).ready
 			(
 
@@ -118,6 +218,12 @@ background: linear-gradient(to right,  rgb(50, 50, 10) 0%, rgb(150, 150, 50) 30%
 					</div>
 				</div>
 
+				<div id="right_middle" class="pageholder">
+					<div class="page">
+
+					</div>
+				</div>
+
 				<div id="left_front" class="pageholder">
 					<div class="page">
 							<div class="pagenumber">1</div>
@@ -129,6 +235,12 @@ background: linear-gradient(to right,  rgb(50, 50, 10) 0%, rgb(150, 150, 50) 30%
 			<div id="right" class="section">
 				<div id="right_back" class="pageholder">
 					<div class="cover">
+
+					</div>
+				</div>
+
+				<div id="right_middle" class="pageholder">
+					<div class="page">
 
 					</div>
 				</div>
