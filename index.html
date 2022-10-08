@@ -18,6 +18,31 @@
 				margin: 10% auto 0 auto;
 			}
 
+			#dashboard
+			{
+				width: 600px;
+				height: 400px;
+				margin: 5% auto 0 auto;
+				text-align: center;
+			}
+
+			button
+			{
+				width: 50px;
+				height: 50px;
+				border-radius: 10px;
+				border: 3px solid rgb(100, 50, 0);
+				background-color: rgb(255, 200, 0);
+				color: rgb(100, 50, 0);
+			}
+
+			button:hover
+			{
+				border: 3px solid rgb(255, 200, 0);
+				background-color: rgb(100, 50, 0);
+				color: rgb(255, 200, 0);
+			}
+
 			.section
 			{
 				width: 50%;
@@ -162,7 +187,7 @@ background: linear-gradient(to right,  rgb(50, 50, 10) 0%, rgb(150, 150, 50) 30%
 						left:
 						{
 							class: "page",
-							content: "the end"				
+							content: "<p style='margin-top:10%;text-align:center'><i>Merry Christmas<br />and Happy New Year!</i></p>"				
 						},
 						right:
 						{
@@ -278,14 +303,9 @@ background: linear-gradient(to right,  rgb(50, 50, 10) 0%, rgb(150, 150, 50) 30%
 				</div>
 			</div>
 		</div>
-		<select onchange="book.currentView=this.value; book.renderView();">
-			<option value="0">0</option>
-			<option value="1">1</option>
-			<option value="2">2</option>
-			<option value="3">3</option>
-			<option value="4">4</option>
-			<option value="5">5</option>
-		</select>
-
+		<div id="dashboard">
+			<button onclick="book.flip(-1)">&#9664;</button>
+			<button onclick="book.flip(1)">&#9654;</button>
+		</div>
 	</body>
 </html>
