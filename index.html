@@ -114,20 +114,20 @@ background: linear-gradient(to right,  rgb(50, 50, 10) 0%, rgb(150, 150, 50) 30%
 						right:
 						{
 							class: "cover",
-							content: ""
+							content: "the cover"
 						}
 					},
 					{
 						left:
 						{
 							class: "cover",
-							content: ""					
+							content: "<p style='margin-top:10%;color:rgba(10,0,0,0.5);text-align:center'><b>A flipbook project by<br /><i>TeochewThunder</i></b></p>"					
 						},
 						right:
 						{
 							class: "page",
 							pagenumber: 1,
-							content: ""	
+							content: "ccc vvv"	
 						}
 					},
 					{
@@ -135,13 +135,13 @@ background: linear-gradient(to right,  rgb(50, 50, 10) 0%, rgb(150, 150, 50) 30%
 						{
 							class: "page",
 							pagenumber: 2,
-							content: ""				
+							content: "ut9789789"				
 						},
 						right:
 						{
 							class: "page",
 							pagenumber: 3,
-							content: ""	
+							content: "iopuououi"	
 						}
 					},
 					{
@@ -149,33 +149,32 @@ background: linear-gradient(to right,  rgb(50, 50, 10) 0%, rgb(150, 150, 50) 30%
 						{
 							class: "page",
 							pagenumber: 4,
-							content: ""				
+							content: "12345"				
 						},
 						right:
 						{
 							class: "page",
 							pagenumber: 5,
-							content: ""	
+							content: "xxx yyy"	
 						}
 					},
 					{
 						left:
 						{
 							class: "page",
-							pagenumber: 6,
-							content: ""				
+							content: "the end"				
 						},
 						right:
 						{
 							class: "cover",
-							content: ""	
+							content: "back inside cover"	
 						}
 					},
 					{
 						left:
 						{
 							class: "cover",
-							content: ""				
+							content: "back cover"				
 						},
 						right:
 						{
@@ -194,17 +193,57 @@ background: linear-gradient(to right,  rgb(50, 50, 10) 0%, rgb(150, 150, 50) 30%
 				},
 				renderView: function()
 				{
+					$(".pageholder").html("");
 
+					if (this.currentView > 0) 
+					{
+						this.renderPage("left_back", this.views[1].left);
+
+						if (this.currentView > 1) 
+						{
+							this.renderPage("left_middle", this.views[this.currentView - 1].left);
+						}
+
+						this.renderPage("left_front", this.views[this.currentView].left);
+					}
+
+					if (this.currentView < this.views.length - 1) 
+					{
+						this.renderPage("right_back", this.views[this.views.length - 2].right);
+
+						if (this.currentView < this.views.length - 2) 
+						{
+							this.renderPage("right_middle", this.views[this.currentView].right);
+						}
+
+						this.renderPage("right_front", this.views[this.currentView].right);
+					}
 				},
-				renderPage: function(id, page)
+				renderPage: function(id, obj)
 				{
+					var div = $("<div></div>");
+					div.removeClass("page").removeClass("cover").addClass(obj.class);
 
+					var pagenumber = $("<div></div>");
+
+					if (obj.pagenumber)
+					{
+						pagenumber.addClass("pagenumber");
+						pagenumber.html(obj.pagenumber);
+						div.append(pagenumber);
+					}
+
+					var content = $("<div></div>");
+					content.html(obj.content);
+					div.append(content);
+
+					$("#" + id).append(div);
 				}
 			}
 
 			$(document).ready
 			(
-
+				function() { book.renderView(); }
 			);
 		</script>
 	</head>
@@ -213,45 +252,39 @@ background: linear-gradient(to right,  rgb(50, 50, 10) 0%, rgb(150, 150, 50) 30%
 		<div id="container">
 			<div id="left" class="section">
 				<div id="left_back" class="pageholder">
-					<div class="cover">
 
-					</div>
 				</div>
 
-				<div id="right_middle" class="pageholder">
-					<div class="page">
+				<div id="left_middle" class="pageholder">
 
-					</div>
 				</div>
 
 				<div id="left_front" class="pageholder">
-					<div class="page">
-							<div class="pagenumber">1</div>
-							<p>Test</p>
-					</div>
+
 				</div>
 			</div>
 
 			<div id="right" class="section">
 				<div id="right_back" class="pageholder">
-					<div class="cover">
 
-					</div>
 				</div>
 
 				<div id="right_middle" class="pageholder">
-					<div class="page">
 
-					</div>
 				</div>
 
 				<div id="right_front" class="pageholder">
-					<div class="page">
-							<div class="pagenumber">2</div>
-							<p>Test 2</p>
-					</div>
+
 				</div>
 			</div>
 		</div>
+		<select onchange="book.currentView=this.value; book.renderView();">
+			<option value="0">0</option>
+			<option value="1">1</option>
+			<option value="2">2</option>
+			<option value="3">3</option>
+			<option value="4">4</option>
+			<option value="5">5</option>
+		</select>
 	</body>
 </html>
