@@ -80,21 +80,45 @@
 				margin-top: 2px;			
 			}
 
+			#left_front, #right_front
+			{
+				-webkit-perspective: 2000px;
+				perspective: 2000px;
+			}
+			
+			#left_front .rotatable
+			{
+				-webkit-transform-origin: 100% 50%;
+				transform-origin: 100% 50%;
+				transform: rotateY(0deg);
+				-webkit-perspective: 150px;
+				-webkit-perspective-origin: 50% 50%;			
+				perspective: 150px;
+				perspective-origin: 50% 50%;
+			}
+
+			#right_front .rotatable
+			{
+				-webkit-transform-origin: 0% 50%;
+				transform-origin: 0% 50%;
+				transform: rotateY(0deg);
+			}
+
 			#left .page
 			{
-/* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/rgb(200, 200, 150)+0,f9eca7+91,db9200+98,b57e00+100 */
-background: -moz-linear-gradient(left,  rgb(200, 200, 150) 0%, rgb(200, 200, 150) 25%, rgb(150, 150, 50) 70%, rgb(50, 50, 10) 100%); /* FF3.6-15 */
-background: -webkit-linear-gradient(left,  rgb(200, 200, 150) 0%, rgb(200, 200, 150) 25%, rgb(150, 150, 50) 70%, rgb(50, 50, 10) 100%); /* Chrome10-25,Safari5.1-6 */
-background: linear-gradient(to right,  rgb(200, 200, 150) 0%, rgb(200, 200, 150) 25%, rgb(150, 150, 50) 70%, rgb(50, 50, 10) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+				/* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/rgb(200, 200, 150)+0,f9eca7+91,db9200+98,b57e00+100 */
+				background: -moz-linear-gradient(left,  rgb(200, 200, 150) 0%, rgb(200, 200, 150) 25%, rgb(150, 150, 50) 70%, rgb(50, 50, 10) 100%); /* FF3.6-15 */
+				background: -webkit-linear-gradient(left,  rgb(200, 200, 150) 0%, rgb(200, 200, 150) 25%, rgb(150, 150, 50) 70%, rgb(50, 50, 10) 100%); /* Chrome10-25,Safari5.1-6 */
+				background: linear-gradient(to right,  rgb(200, 200, 150) 0%, rgb(200, 200, 150) 25%, rgb(150, 150, 50) 70%, rgb(50, 50, 10) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
 				float: right;
 			}
 
 			#right .page
 			{
-/* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/rgb(200, 200, 150)+0,f9eca7+91,db9200+98,b57e00+100 */
-background: -moz-linear-gradient(left,  rgb(50, 50, 10) 0%, rgb(150, 150, 50) 30%, rgb(200, 200, 150) 75%, rgb(200, 200, 150) 100%); /* FF3.6-15 */
-background: -webkit-linear-gradient(left,  rgb(50, 50, 10) 0%, rgb(150, 150, 50) 30%, rgb(200, 200, 150) 75%, rgb(200, 200, 150) 100%); /* Chrome10-25,Safari5.1-6 */
-background: linear-gradient(to right,  rgb(50, 50, 10) 0%, rgb(150, 150, 50) 30%, rgb(200, 200, 150) 75%, rgb(200, 200, 150) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+				/* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/rgb(200, 200, 150)+0,f9eca7+91,db9200+98,b57e00+100 */
+				background: -moz-linear-gradient(left,  rgb(50, 50, 10) 0%, rgb(150, 150, 50) 30%, rgb(200, 200, 150) 75%, rgb(200, 200, 150) 100%); /* FF3.6-15 */
+				background: -webkit-linear-gradient(left,  rgb(50, 50, 10) 0%, rgb(150, 150, 50) 30%, rgb(200, 200, 150) 75%, rgb(200, 200, 150) 100%); /* Chrome10-25,Safari5.1-6 */
+				background: linear-gradient(to right,  rgb(50, 50, 10) 0%, rgb(150, 150, 50) 30%, rgb(200, 200, 150) 75%, rgb(200, 200, 150) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
 			}
 
 			#left .cover
@@ -124,7 +148,6 @@ background: linear-gradient(to right,  rgb(50, 50, 10) 0%, rgb(150, 150, 50) 30%
 		</style>
 
 		<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
-		<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 
 		<script>
 			let book = 
@@ -139,7 +162,7 @@ background: linear-gradient(to right,  rgb(50, 50, 10) 0%, rgb(150, 150, 50) 30%
 						right:
 						{
 							class: "cover",
-							content: "the cover"
+							content: "<img src='flipbook00.jpg'/>"
 						}
 					},
 					{
@@ -214,7 +237,12 @@ background: linear-gradient(to right,  rgb(50, 50, 10) 0%, rgb(150, 150, 50) 30%
 					if (this.currentView + dir > this.views.length -1) return;
 
 					this.currentView = this.currentView + dir;
-					this.renderView();
+					
+					if (dir > 0)
+					{
+						$("#right_front .rotatable").attr("style", "transform: rotateY(-85deg); transition-duration: 1s");					
+					}
+					//this.renderView();
 				},
 				renderView: function()
 				{
@@ -238,7 +266,7 @@ background: linear-gradient(to right,  rgb(50, 50, 10) 0%, rgb(150, 150, 50) 30%
 
 						if (this.currentView < this.views.length - 2) 
 						{
-							this.renderPage("right_middle", this.views[this.currentView].right);
+							this.renderPage("right_middle", this.views[this.currentView + 1].right);
 						}
 
 						this.renderPage("right_front", this.views[this.currentView].right);
@@ -247,7 +275,8 @@ background: linear-gradient(to right,  rgb(50, 50, 10) 0%, rgb(150, 150, 50) 30%
 				renderPage: function(id, obj)
 				{
 					var div = $("<div></div>");
-					div.removeClass("page").removeClass("cover").addClass(obj.class);
+					div.addClass(obj.class);
+					div.addClass('rotatable');
 
 					var pagenumber = $("<div></div>");
 
