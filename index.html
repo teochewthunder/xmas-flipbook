@@ -91,10 +91,6 @@
 				-webkit-transform-origin: 100% 50%;
 				transform-origin: 100% 50%;
 				transform: rotateY(0deg);
-				-webkit-perspective: 150px;
-				-webkit-perspective-origin: 50% 50%;			
-				perspective: 150px;
-				perspective-origin: 50% 50%;
 			}
 
 			#right_front .rotatable
@@ -240,9 +236,24 @@
 					
 					if (dir > 0)
 					{
-						$("#right_front .rotatable").attr("style", "transform: rotateY(-85deg); transition-duration: 1s");					
+						$("#right_front .rotatable").attr("style", "transform: rotateY(-85deg); transition-duration: 1s");	
+
+						setTimeout(
+							()=>
+							{
+								this.renderView();
+								$("#left_front .rotatable").attr("style", "transform: rotateY(85deg); transition-duration: 0s");
+								setTimeout(
+									()=>
+									{
+										$("#left_front .rotatable").attr("style", "transform: rotateY(0deg); transition-duration: 1s");		
+									},
+									10
+								);
+							},
+							1000
+						)				
 					}
-					//this.renderView();
 				},
 				renderView: function()
 				{
@@ -250,7 +261,11 @@
 
 					if (this.currentView > 0) 
 					{
-						this.renderPage("left_back", this.views[1].left);
+						if (this.currentView > 2) 
+						{
+							this.renderPage("left_back", this.views[1].left);
+						}
+
 
 						if (this.currentView > 1) 
 						{
@@ -276,7 +291,11 @@
 				{
 					var div = $("<div></div>");
 					div.addClass(obj.class);
-					div.addClass('rotatable');
+
+					if (id == "left_front" || id == "right_front")
+					{
+						div.addClass("rotatable");
+					}
 
 					var pagenumber = $("<div></div>");
 
