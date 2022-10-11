@@ -151,14 +151,10 @@
 				views: 
 				[
 					{
-						left:
-						{
-							class: null
-						},
 						right:
 						{
 							class: "cover",
-							content: "<img src='flipbook00.jpg'/>"
+							content: "<p style='text-align:center'><img src='flipbook_cover.png'/></p>"
 						}
 					},
 					{
@@ -211,18 +207,14 @@
 						right:
 						{
 							class: "cover",
-							content: "back inside cover"	
+							content: ""	
 						}
 					},
 					{
 						left:
 						{
 							class: "cover",
-							content: "back cover"				
-						},
-						right:
-						{
-							class: null
+							content: ""				
 						}
 					}
 				],
@@ -236,6 +228,7 @@
 					
 					if (dir > 0)
 					{
+						$("button").prop("disabled", true);
 						$("#right_front .rotatable").attr("style", "transform: rotateY(-85deg); transition-duration: 1s");	
 
 						setTimeout(
@@ -246,12 +239,36 @@
 								setTimeout(
 									()=>
 									{
-										$("#left_front .rotatable").attr("style", "transform: rotateY(0deg); transition-duration: 1s");		
+										$("#left_front .rotatable").attr("style", "transform: rotateY(0deg); transition-duration: 1s");	
+										$("button").prop("disabled", false);	
 									},
 									10
 								);
 							},
-							1000
+							990
+						)				
+					}
+
+					if (dir < 0)
+					{
+						$("button").prop("disabled", true);
+						$("#left_front .rotatable").attr("style", "transform: rotateY(85deg); transition-duration: 1s");	
+
+						setTimeout(
+							()=>
+							{
+								this.renderView();
+								$("#right_front .rotatable").attr("style", "transform: rotateY(-85deg); transition-duration: 0s");
+								setTimeout(
+									()=>
+									{
+										$("#right_front .rotatable").attr("style", "transform: rotateY(0deg); transition-duration: 1s");	
+										$("button").prop("disabled", false);	
+									},
+									10
+								);
+							},
+							990
 						)				
 					}
 				},
@@ -277,7 +294,10 @@
 
 					if (this.currentView < this.views.length - 1) 
 					{
-						this.renderPage("right_back", this.views[this.views.length - 2].right);
+						if (this.currentView < this.views.length - 3) 
+						{
+							this.renderPage("right_back", this.views[this.views.length - 2].right);
+						}
 
 						if (this.currentView < this.views.length - 2) 
 						{
