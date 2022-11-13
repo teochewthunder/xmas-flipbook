@@ -11,6 +11,8 @@
 				font-family: arial;
 			}
 
+      		div { outline: 0px solid red; }
+
 			#container
 			{
 				width: 600px;
@@ -21,7 +23,7 @@
 			#dashboard
 			{
 				width: 600px;
-				height: 400px;
+				height: 100px;
 				margin: 5% auto 0 auto;
 				text-align: center;
 			}
@@ -53,8 +55,8 @@
 			.section
 			{
 				width: 50%;
-				height:100%;
-				outline: 0px solid #FF0000;
+				height: 100%;
+				outline: 0px solid green;
 				float: left;
 			}
 
@@ -62,14 +64,13 @@
 			{
 				width: 100%;
 				height: 100%;
-				outline: 0px solid #0000FF;
+				outline: 0px solid blue;
 				float: left;
 			}
 
 			#left_front, #right_front, #left_middle, #right_middle
 			{
 				margin-left: -100%;
-				outline: 0px solid #FFFFFF;
 			}
 
 			.cover
@@ -92,7 +93,7 @@
 				-webkit-perspective: 2000px;
 				perspective: 2000px;
 			}
-			
+
 			#left_front .rotatable
 			{
 				-webkit-transform-origin: 100% 50%;
@@ -109,34 +110,33 @@
 
 			#left .page
 			{
-				/* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/rgb(200, 200, 150)+0,f9eca7+91,db9200+98,b57e00+100 */
-				background: -moz-linear-gradient(left,  rgb(200, 200, 150) 0%, rgb(200, 200, 150) 25%, rgb(150, 150, 50) 70%, rgb(50, 50, 10) 100%); /* FF3.6-15 */
-				background: -webkit-linear-gradient(left,  rgb(200, 200, 150) 0%, rgb(200, 200, 150) 25%, rgb(150, 150, 50) 70%, rgb(50, 50, 10) 100%); /* Chrome10-25,Safari5.1-6 */
-				background: linear-gradient(to right,  rgb(200, 200, 150) 0%, rgb(200, 200, 150) 25%, rgb(150, 150, 50) 70%, rgb(50, 50, 10) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+
+				background: -moz-linear-gradient(left,  rgb(200, 200, 150) 0%, rgb(200, 200, 150) 25%, rgb(150, 150, 50) 70%, rgb(50, 50, 10) 100%); 
+				background: -webkit-linear-gradient(left,  rgb(200, 200, 150) 0%, rgb(200, 200, 150) 25%, rgb(150, 150, 50) 70%, rgb(50, 50, 10) 100%); 
+				background: linear-gradient(to right,  rgb(200, 200, 150) 0%, rgb(200, 200, 150) 25%, rgb(150, 150, 50) 70%, rgb(50, 50, 10) 100%); 
 				float: right;
 			}
 
 			#right .page
 			{
-				/* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/rgb(200, 200, 150)+0,f9eca7+91,db9200+98,b57e00+100 */
-				background: -moz-linear-gradient(left,  rgb(50, 50, 10) 0%, rgb(150, 150, 50) 30%, rgb(200, 200, 150) 75%, rgb(200, 200, 150) 100%); /* FF3.6-15 */
-				background: -webkit-linear-gradient(left,  rgb(50, 50, 10) 0%, rgb(150, 150, 50) 30%, rgb(200, 200, 150) 75%, rgb(200, 200, 150) 100%); /* Chrome10-25,Safari5.1-6 */
-				background: linear-gradient(to right,  rgb(50, 50, 10) 0%, rgb(150, 150, 50) 30%, rgb(200, 200, 150) 75%, rgb(200, 200, 150) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+				background: -moz-linear-gradient(left,  rgb(50, 50, 10) 0%, rgb(150, 150, 50) 30%, rgb(200, 200, 150) 75%, rgb(200, 200, 150) 100%); 
+				background: -webkit-linear-gradient(left,  rgb(50, 50, 10) 0%, rgb(150, 150, 50) 30%, rgb(200, 200, 150) 75%, rgb(200, 200, 150) 100%); 
+				background: linear-gradient(to right,  rgb(50, 50, 10) 0%, rgb(150, 150, 50) 30%, rgb(200, 200, 150) 75%, rgb(200, 200, 150) 100%); 
 			}
 
 			#left .cover
 			{
-				background: -moz-linear-gradient(left,  rgb(150, 0, 0) 0%, rgb(50, 0, 0) 80%, rgb(30, 0, 0) 100%); /* FF3.6-15 */
-				background: -webkit-linear-gradient(left,  rgb(150, 0, 0) 0%, rgb(50, 0, 0) 80%, rgb(30, 0, 0) 100%); /* Chrome10-25,Safari5.1-6 */
-				background: linear-gradient(to right,  rgb(150, 0, 0) 0%, rgb(50, 0, 0) 80%, rgb(30, 0, 0) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+				background: -moz-linear-gradient(left,  rgb(150, 0, 0) 0%, rgb(50, 0, 0) 80%, rgb(30, 0, 0) 100%); 
+				background: -webkit-linear-gradient(left,  rgb(150, 0, 0) 0%, rgb(50, 0, 0) 80%, rgb(30, 0, 0) 100%); 
+				background: linear-gradient(to right,  rgb(150, 0, 0) 0%, rgb(50, 0, 0) 80%, rgb(30, 0, 0) 100%); 
 				box-shadow: 0 3px 0 rgb(100, 0, 0) inset, 3px 0 0 rgb(100, 0, 0) inset, 0 -3px 0 rgb(100, 0, 0) inset;
 			}
 
 			#right .cover
 			{
-				background: -moz-linear-gradient(left,  rgb(30, 0, 0) 0%, rgb(50, 0, 0) 20%, rgb(150, 0, 0) 100%); /* FF3.6-15 */
-				background: -webkit-linear-gradient(left,  rgb(30, 0, 0) 0%, rgb(50, 0, 0) 20%, rgb(150, 0, 0) 100%); /* Chrome10-25,Safari5.1-6 */
-				background: linear-gradient(to right,  rgb(30, 0, 0) 0%, rgb(50, 0, 0) 20%, rgb(150, 0, 0) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+				background: -moz-linear-gradient(left,  rgb(30, 0, 0) 0%, rgb(50, 0, 0) 20%, rgb(150, 0, 0) 100%); 
+				background: -webkit-linear-gradient(left,  rgb(30, 0, 0) 0%, rgb(50, 0, 0) 20%, rgb(150, 0, 0) 100%); 
+				background: linear-gradient(to right,  rgb(30, 0, 0) 0%, rgb(50, 0, 0) 20%, rgb(150, 0, 0) 100%); 
 				box-shadow: 0 3px 0 rgb(100, 0, 0) inset, -3px 0 0 rgb(100, 0, 0) inset, 0 -3px 0 rgb(100, 0, 0) inset;
 			}
 
@@ -232,7 +232,8 @@
 					if (this.currentView + dir > this.views.length -1) return;
 
 					this.currentView = this.currentView + dir;
-					
+
+
 					if (dir > 0)
 					{
 						$("button").prop("disabled", true);
@@ -277,8 +278,14 @@
 									()=>
 									{
 										$("#right_front .rotatable").attr("style", "transform: rotateY(0deg); transition-duration: 1s");	
-										$("button").prop("disabled", false);	
-									},
+
+										setTimeout(
+											()=>
+											{
+												$("button").prop("disabled", false);	
+											},
+											1000
+										);										},
 									10
 								);
 							},
@@ -359,29 +366,53 @@
 		<div id="container">
 			<div id="left" class="section">
 				<div id="left_back" class="pageholder">
-
+					<!-- <div class="cover">
+						<p style="margin-top:10%;color:rgba(10,0,0,0.5);text-align:center"><b>A flipbook project by<br /><i>TeochewThunder</i></b></p><p style="text-align:center"><img src="tt.png" /></p>
+					</div> -->
 				</div>
 
-				<div id="left_middle" class="pageholder">
-
+				<div id="left_middle" class="pageholder">					 					
+					<!-- <div class="page">
+						<div class="pagenumber">1</div>
+						<div>
+							<p style="text-align:justify">Christmas is an annual festival commemorating the birth of Jesus Christ, observed primarily on December 25 as a religious and cultural celebration among billions of people around the world.</p><p style='text-align:justify'>A feast central to the Christian liturgical year, it is preceded by the season of Advent or the Nativity Fast and initiates the season of Christmastide, which historically in the West lasts twelve days and culminates on Twelfth Night. Christmas Day is a public holiday in many countries, is celebrated religiously by a majority of Christians, as well as culturally by many non-Christians, and forms an integral part of the holiday season organized around it.</p>
+						</div>
+					</div>  -->	
 				</div>
 
 				<div id="left_front" class="pageholder">
-
+					<!-- <div class="page">
+						<div class="pagenumber">3</div>
+						<div>
+							<p><i>A Christmas Carol</i></p><iframe width="200" height="200" src="https://www.youtube.com/embed/iN6IMZFwY50"></iframe>
+						</div>
+					</div> 	 -->
 				</div>
 			</div>
 
 			<div id="right" class="section">
 				<div id="right_back" class="pageholder">
-
+					<!-- <div class="cover">
+						<p style="text-align:center"><img src="flipbook_cover.png"/></p>
+					</div> -->
 				</div>
 
-				<div id="right_middle" class="pageholder">
-
+				<div id="right_middle" class="pageholder">					 					
+					<!-- <div class="page">
+						<div class="pagenumber">2</div>
+						<div>
+							<img align="left" style="padding:5px" src="flipbook00.jpg"/><p style="text-align:justify">A special Christmas family meal is traditionally an important part of the holiday's celebration, and the food that is served varies greatly from country to country. Some regions have special meals for Christmas Eve, such as Sicily, where 12 kinds of fish are served. In the United Kingdom and countries influenced by its traditions, a standard Christmas meal includes turkey, goose or other large bird, gravy, potatoes, vegetables, sometimes bread and cider.</p>
+						</div>
+					</div>  -->
 				</div>
 
 				<div id="right_front" class="pageholder">
-
+					<!-- <div class="page">
+						<div class="pagenumber">4</div>
+						<div>
+							<div style="margin-top:10%;width:200px;height:150px;background: url(flipbook01.jpg) left top no-repeat;filter:opacity(0.5);outline:5px solid rgba(200,200,0,0.5)"></div>
+						</div>
+					</div>  -->	
 				</div>
 			</div>
 		</div>
