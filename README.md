@@ -17,10 +17,22 @@ We also have two buttons at the bottom to "flip" left and right.
 - `rotatable` is used to specify things like the rotation and origin. For the left side divs, the point of origin is the right edge, and for the right side divs, the point of origin is the left edge. 
 
 ## jQuery
-- the `book` object contains
-    - `currentView`: an integer (min 0) that tracks which element of `views` is currently active.
-    - `views`: an array of objects. Each object contains
-        - `left` and 'right`. Either or both can be present depending on what the current view requires.
-            - `class`: The CSS style used for the visual of that view ("page" or "cover")
-            - `pagenumber`: An integer. Present only if there is a page number.
-            - `content`: text string for the HTML content.
+The `book` object contains
+- `currentView`: an integer (min 0) that tracks which element of `views` is currently active.
+- `views`: an array of objects. Each object contains
+    - `left` and `right`. Either or both can be present depending on what the current view requires.
+        - `class`: The CSS style used for the visual of that view ("page" or "cover")
+        - `pagenumber`: An integer. Present only if there is a page number.
+        - `content`: text string for the HTML content.
+- `flip`: a method which accepts one argument, `dir`.
+    - `dir` is either 1 for forward or -1 for backward. 
+    - checks if `dir` plus `currentView` is valid, and exits early if not.
+    - if forward flip...
+        - disable buttons
+        - rotate `right_front` but at 1 second transition.
+        - after 1 second (less a few milliseconds), call `renderView()`.
+        - rotate `left_front` immediately.
+        - after a very short time (a few milliseconds?), un-rotate `left_front` but at 1 second transition.
+        - after 1 second, re-enable buttons.
+    - if backward flip, do as for forward flip but reversed. 
+- `renderView`: a method which accepts two arguments -  a string, `id`, and an object, `obj`. 
