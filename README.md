@@ -35,4 +35,4 @@ The `book` object contains
         - after a very short time (a few milliseconds?), un-rotate `left_front` but at 1 second transition.
         - after 1 second, re-enable buttons.
     - if backward flip, do as for forward flip but reversed. 
-- `renderView`: a method which accepts two arguments -  a string, `id`, and an object, `obj`. 
+- `renderView`: a method which generates the pages based on the value of `currentView`. 
