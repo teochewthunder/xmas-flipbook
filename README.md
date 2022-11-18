@@ -36,3 +36,14 @@ The `book` object contains
         - after 1 second, re-enable buttons.
     - if backward flip, do as for forward flip but reversed. 
 - `renderView`: a method which generates the pages based on the value of `currentView`. 
+    - If `currentView` is 2 or 2 less than the length of `views`, that means the cover must be rendered as a background. `left_back` and `right_back` are rendered using the HTML content from the first and last elements of `views`.
+    - If `currentView` is 1 or 1 less than the length of `views`, that means the intermediary pages must be rendered. `left_middle` and `right_middle` are rendered using the HTML content from the previous or next (from `currentView`) elements of 'views`.
+    - In any case, `left_front` and `right_front` must be rendered.
+    - Rendering is done using `renderPage()`.
+- `renderPage`: a method which populates a placeholder with HTML content, accepts a string which is the id of the placeholder (`id`) and an object which contains HTML content (`obj`).
+    - create a div.
+    - if placeholder is `left_front` or `right_front`, add CSS class "rotatable" and either "page" or "cover". If not, just add CSS class "page" or "cover" (depending of the `class` property of `obj`).
+    - if `obj` contains `pagenumber`, insert a div with class of "pagenumber" and insert the value of `pagenumber`.
+    - insert a div with the `content` property from `obj`.
+    - insert the entire thing into the placeholder identified by `id`.
+    
