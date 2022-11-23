@@ -1,4 +1,4 @@
-# Xmas Flipbook (in progress)
+# Xmas Flipbook
 This is a HTML/CSS/jQuery script that simulates a Christmas-themed flipbook.
 
 ## HTML
